@@ -1,9 +1,10 @@
-import TrendingApps from "@/components/Homepage/TrendingApp";
+import TrendingFoods from "@/components/Homepage/TrendingFoods";
+
 
 const AppsPage = async ({from}) => {
     return (
         <div>
-            <TrendingApps from="App"></TrendingApps>
+            <TrendingFoods from="App"></TrendingFoods>
         </div>
     );
 };

@@ -1,11 +1,20 @@
-import { createContext } from "react";
-const CartItemsContext = createContext()
+'use client'
+import { createContext, useState } from "react";
+export const CartItemsContext = createContext()
 
-const CartContext = () => {
+const CartItemProvider = ({children}) => {
+const [cartItem, setCartItem] = useState([]);
+console.log(cartItem);
+const value = {
+    cartItem,
+    setCartItem,
+}
 
     return (
-        d
+        <CartItemsContext.Provider value ={value}>
+            {children}
+        </CartItemsContext.Provider>
     );
 };
 
-export default CartContext;
+export default CartItemProvider;

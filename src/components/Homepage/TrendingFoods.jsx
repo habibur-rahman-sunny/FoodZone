@@ -1,8 +1,7 @@
-// import AppCard from "../../../UI/Card/AppCard";
 import Link from "next/link";
-import AppCard from "../UI/Card/AppCard";
+import FoodCard from "../UI/Card/FoodCard";
 
-const TrendingApps = async ({ from }) => {
+const TrendingFoods = async ({ from }) => {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/foods");
     const data = await res.json();
     const FoodData = data.data;
@@ -26,7 +25,7 @@ const TrendingApps = async ({ from }) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
 
                         {FoodData.slice(0, from === "Homepage" ? 8 : (FoodData.length - 1)).map((specificFood, index) => (
-                            <AppCard
+                            <FoodCard
                                 key={index}
                                 specificFood={specificFood}
                             />
@@ -47,4 +46,4 @@ const TrendingApps = async ({ from }) => {
     );
 };
 
-export default TrendingApps;
+export default TrendingFoods;

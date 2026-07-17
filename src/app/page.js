@@ -1,7 +1,7 @@
 import Banner from "@/components/Homepage/Banner";
 import FoodMarquee from "@/components/Homepage/FoodMarque";
 import States from "@/components/Homepage/States";
-import TrendingApps from "@/components/Homepage/TrendingApp";
+import TrendingApps from "@/components/Homepage/TrendingFoods";
 
 
 export default function Home() {
