@@ -9,7 +9,7 @@ const Navbar = () => {
         { path: "/", text: "Home" },
         { path: "/App", text: "Menu" },
         { path: "/Cart", text: "Cart" },
-        { path: "/dashboard", text: "dashboard" },
+        { path: "/Dashboard", text: "dashboard" },
     ]
     return (
         <div className="shadow-md fixed top-0 left-0 w-full z-50 bg-white">
@@ -22,7 +22,7 @@ const Navbar = () => {
                             alt="nav-logo"
                             width={50}
                             height={50}></Image>
-                        <h1 className="text-xl font-bold text-[#5B4BFF]">EasyMart</h1>
+                        <h1 className="text-xl font-bold text-[#5B4BFF]">FoodHub</h1>
                     </div>
                 </div>
 

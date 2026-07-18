@@ -108,16 +108,16 @@ const FoodDetails = ({ specificFood }) => {
                     <div className="grid grid-cols-2 gap-4 mt-8">
                         <CartToggleBtn specificFood={specificFood}></CartToggleBtn>
 
-                        <button className="bg-black text-white py-4 rounded-xl font-semibold">
+                        <button className="bg-black text-white py-2 rounded-sm transition font-semibold">
                             Buy Now
                         </button>
 
-                        <button className="bg-green-600 text-white py-4 rounded-xl flex justify-center items-center gap-2 font-semibold">
+                        <button className="bg-green-600 text-white py-2 rounded-sm transition flex justify-center items-center gap-2 font-semibold">
                             <MessageCircle size={20}/>
                             Whatsapp
                         </button>
 
-                        <button className="bg-blue-600 text-white py-4 rounded-xl flex justify-center items-center gap-2 font-semibold">
+                        <button className="bg-blue-600 text-white py-2 rounded-sm transition flex justify-center items-center gap-2 font-semibold">
                             <Phone size={20}/>
                             Call Order
                         </button>

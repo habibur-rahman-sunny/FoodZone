@@ -19,7 +19,7 @@ const Banner = () => {
                 </div>
                 {/* Mockup Image Placeholder */}
                     <div className="mt-8 w-9/12 mx-auto">
-                        <Image className="rounded-4xl"
+                        <Image className="rounded-t-2xl"
                             src={foodItemsImg}
                             alt="App Mockup" 
                             width={1200}

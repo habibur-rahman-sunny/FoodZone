@@ -32,7 +32,7 @@ const CartPage = () => {
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               Listed Items
-              <span className="text-sm font-normal text-gray-500 bg-gray-100 px-2.5 py-0.5 rounded-full">
+              <span className="text-sm font-semibold text-green-600 bg-gray-100 px-2.5 py-0.5 rounded-full animate-bounce">
                 {cartItem.length}
               </span>
             </h2>
