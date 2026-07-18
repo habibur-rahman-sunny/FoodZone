@@ -26,18 +26,18 @@ This project demonstrates:
 
 # ✨ Features
 
-* 🍕 Browse a variety of delicious food items
-* 📄 View detailed information about each dish
-* 🛒 Add food items to the shopping cart
-* ❌ Remove items from the cart
-* 💰 Automatically calculate the total price
-* ⚡ Fast and interactive user experience
-* 📱 Fully responsive design for all devices
-* 🎨 Modern and clean user interface
+*  Browse a variety of delicious food items
+* View detailed information about each dish
+* Add food items to the shopping cart
+* Remove items from the cart
+* Automatically calculate the total price
+* Fast and interactive user experience
+* Fully responsive design for all devices
+* Modern and clean user interface
 
 ---
 
-# 📦 Dependencies
+#  Dependencies
 
 * Next.js
 * React
@@ -47,7 +47,7 @@ This project demonstrates:
 
 ---
 
-# 🚀 How to Run the Project Locally
+#  How to Run the Project Locally
 
 1. Go to the repository and click on the **Code** button, then copy the repository link.
 
@@ -82,17 +82,72 @@ npm run dev
 http://localhost:3000
 ```
 
-🎉 Done! FoodXOne is now running locally.
+Done! FoodXOne is now running locally.
 
 ---
 
 # 📂 Project Structure
 
-```
-app/
-components/
-context/
-public/
+---
+
+# 📂 Project Structure
+
+```text
+FoodXOne/
+├── public/
+│
+├── src/
+│   ├── app/
+│   │   ├── App/
+│   │   │   └── page.jsx
+│   │   ├── Cart/
+│   │   │   └── page.jsx
+│   │   ├── Context/
+│   │   │   └── CartContext.jsx
+│   │   ├── Dashboard/
+│   │   │   └── page.jsx
+│   │   ├── FoodDetails/
+│   │   │   ├── [foodId]/
+│   │   │   └── page.jsx
+│   │   ├── Lib/
+│   │   │   └── Provider/
+│   │   │       └── index.js
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.js
+│   │   └── page.js
+│   │
+│   └── components/
+│       ├── FoodDetails/
+│       │   └── FoodDetails.jsx
+│       ├── Homepage/
+│       │   ├── Banner.jsx
+│       │   ├── FoodMarquee.jsx
+│       │   ├── States.jsx
+│       │   └── TrendingFoods.jsx
+│       ├── Menu/
+│       │   └── CartToggleBtn.jsx
+│       ├── Shared/
+│       │   ├── Footer/
+│       │   │   └── Footer.jsx
+│       │   └── Navbar/
+│       │       ├── CartIcon/
+│       │       │   └── CartIcon.jsx
+│       │       ├── Navbar.jsx
+│       │       └── ReusableNav.jsx
+│       └── UI/
+│           └── Card/
+│               ├── CartCard.jsx
+│               └── FoodCard.jsx
+│
+├── .gitignore
+├── AGENTS.md
+├── CLAUDE.md
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package.json
+└── package-lock.json
 ```
 
 ---
@@ -100,7 +155,3 @@ public/
 # 👨‍💻 Author
 
 **Habibur Rahman Sunny**
-
-```
-
-এটা GitHub README হিসেবে একদম প্রফেশনাল দেখাবে। যদি তোমার **FoodXOne**-এ Search, Category Filter, Wishlist, Checkout বা Toast Notification-এর মতো ফিচারও থাকে, সেগুলোও README-তে যোগ করে আরও আকর্ষণীয় করা যাবে।
