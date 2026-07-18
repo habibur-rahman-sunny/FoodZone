@@ -88,10 +88,6 @@ Done! FoodXOne is now running locally.
 
 # 📂 Project Structure
 
----
-
-# 📂 Project Structure
-
 ```text
 FoodXOne/
 ├── public/
@@ -152,6 +148,6 @@ FoodXOne/
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Habibur Rahman Sunny**
