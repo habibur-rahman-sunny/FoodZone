@@ -1,4 +1,4 @@
-import FoodDetails from "@/components/Detailspage/FoodDetails";
+import FoodDetails from "@/components/FoodDetails/FoodDetails";
 
 
 
@@ -8,11 +8,11 @@ const page = async ({ params }) => {
     
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/foods/${FoodId}`);
     const data = await res.json();
-    const FoodData = data.data;
+    const specificFood = data.data;
 
     return (
         <div>
-            <FoodDetails food={FoodData}></FoodDetails>
+            <FoodDetails specificFood={specificFood}></FoodDetails>
         </div>
     );
 };

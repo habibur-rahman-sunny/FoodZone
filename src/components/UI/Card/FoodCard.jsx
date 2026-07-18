@@ -2,7 +2,6 @@
 import CartToggleBtn from "@/components/Menu/CartToggleBtn";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const FoodCard = ({ specificFood }) => {
     
@@ -16,7 +15,7 @@ const FoodCard = ({ specificFood }) => {
     } = specificFood
     return (
         <div>
-            <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+            <div className="bg-white rounded-sm shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
 
                 {/* Image */}
                 <div className="h-56 bg-gray-100 flex justify-center items-center">
@@ -66,7 +65,7 @@ const FoodCard = ({ specificFood }) => {
 
                     {/* Buttons */}
                     <div className="flex gap-3 mt-5">
-                    <Link href={`/FoodDetails/${id}`} className="flex-1 text-center border border-gray-300 py-2 rounded-xl hover:bg-gray-100 transition">
+                    <Link href={`/FoodDetails/${id}`} className="flex-1 text-center border border-gray-300 py-2 rounded-sm hover:bg-gray-100 transition">
                          Details
                     </Link>
 

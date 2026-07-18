@@ -1,15 +1,15 @@
 import {
     Star,
-    ShoppingCart,
     Phone,
     MessageCircle,
     Flame,
     Utensils,
 } from "lucide-react";
 import Image from "next/image";
+import CartToggleBtn from "../Menu/CartToggleBtn";
 
 // FoodDetails Component (আলাদা ফাইল না রেখে এখানেই যুক্ত করা হলো)
-const FoodDetails = ({ food }) => {
+const FoodDetails = ({ specificFood }) => {
     // Object Destructuring
     const {
         id,
@@ -22,7 +22,7 @@ const FoodDetails = ({ food }) => {
         approximate_nutrition_per_serving,
         main_ingredients,
         cooking_steps
-    } = food || {};
+    } = specificFood || {};
 
     // Nutrition data destructuring
     const {
@@ -106,10 +106,7 @@ const FoodDetails = ({ food }) => {
 
                     {/* Buttons Section */}
                     <div className="grid grid-cols-2 gap-4 mt-8">
-                        <button className="bg-orange-500 text-white py-4 rounded-xl flex justify-center items-center gap-2 font-semibold hover:bg-orange-600">
-                            <ShoppingCart size={20}/>
-                            Add To Cart
-                        </button>
+                        <CartToggleBtn specificFood={specificFood}></CartToggleBtn>
 
                         <button className="bg-black text-white py-4 rounded-xl font-semibold">
                             Buy Now
