@@ -1,13 +1,12 @@
 # 🍔 Project Overview
 
-FoodXOne is a modern and responsive food ordering web application where users can browse delicious food items, explore detailed information, add their favorite dishes to the cart, and enjoy a smooth ordering experience.
+FoodZone is a modern and responsive food ordering web application where users can browse delicious food items, explore detailed information, add their favorite dishes to the cart, and enjoy a smooth ordering experience.
 
 This project demonstrates:
 
 * Dynamic food data rendering
 * Component-based UI development
 * Shopping cart management
-* Category-based food browsing
 * Client-side navigation
 * Responsive and modern user interface
 
@@ -89,52 +88,54 @@ Done! FoodXOne is now running locally.
 # 📂 Project Structure
 
 ```text
-FoodXOne/
+FoodZone/
 ├── public/
 │
-├── src/
-│   ├── app/
-│   │   ├── App/
+├── src
+│   ├── app
+│   │   ├── Cart
 │   │   │   └── page.jsx
-│   │   ├── Cart/
-│   │   │   └── page.jsx
-│   │   ├── Context/
+│   │   ├── Context
 │   │   │   └── CartContext.jsx
-│   │   ├── Dashboard/
+│   │   ├── Dashboard
 │   │   │   └── page.jsx
-│   │   ├── FoodDetails/
-│   │   │   ├── [foodId]/
+│   │   ├── FoodDetails
+│   │   │   ├── [FoodId]
 │   │   │   └── page.jsx
-│   │   ├── Lib/
-│   │   │   └── Provider/
-│   │   │       └── index.js
+│   │   ├── Lib (Folder)
+│   │   ├── Menu
+│   │   │   └── page.jsx
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.js
 │   │   └── page.js
 │   │
-│   └── components/
-│       ├── FoodDetails/
+│   └── components
+│       ├── FoodDetails
 │       │   └── FoodDetails.jsx
-│       ├── Homepage/
+│       ├── Homepage
 │       │   ├── Banner.jsx
-│       │   ├── FoodMarquee.jsx
+│       │   ├── FoodMarque.jsx
+│       │   ├── Reviews.jsx
 │       │   ├── States.jsx
 │       │   └── TrendingFoods.jsx
-│       ├── Menu/
-│       │   └── CartToggleBtn.jsx
-│       ├── Shared/
-│       │   ├── Footer/
-│       │   │   └── Footer.jsx
-│       │   └── Navbar/
-│       │       ├── CartIcon/
-│       │       │   └── CartIcon.jsx
-│       │       ├── Navbar.jsx
-│       │       └── ReusableNav.jsx
-│       └── UI/
-│           └── Card/
-│               ├── CartCard.jsx
-│               └── FoodCard.jsx
+│       └── Shared
+│           ├── Footer
+│           │   └── Footer.jsx
+│           ├── Navbar
+│           │   ├── CartIcon
+│           │   │   └── CartIcon.jsx
+│           │   ├── Navbar.jsx
+│           │   └── ReusableNav.jsx
+│           └── UI\Card
+│               ├── CartCard
+│               │   ├── CartCard.jsx
+│               │   └── RemoveToggleBtn.jsx
+│               ├── FoodCard
+│               │   ├── CartToggleBtn.jsx
+│               │   └── FoodCard.jsx
+│               └── ReviewCard
+│                   └── ReviewCard.jsx
 │
 ├── .gitignore
 ├── AGENTS.md
@@ -142,8 +143,10 @@ FoodXOne/
 ├── eslint.config.mjs
 ├── jsconfig.json
 ├── next.config.mjs
+├── package-lock.json
 ├── package.json
-└── package-lock.json
+├── postcss.config.mjs
+└── README.md
 ```
 
 ---
