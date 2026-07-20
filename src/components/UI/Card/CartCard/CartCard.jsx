@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RemoveToggleBtn from "./RemoveToggleBtn";
 
 const CartCard = ({ listedItem }) => {
   const {
@@ -36,9 +37,7 @@ const CartCard = ({ listedItem }) => {
       </div>
 
       {/* Right */}
-      <button className="px-4 py-2 rounded-lg border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition">
-        Remove
-      </button>
+      <RemoveToggleBtn listedItem={listedItem}></RemoveToggleBtn>
     </div>
   );
 };

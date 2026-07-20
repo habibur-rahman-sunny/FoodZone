@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { CartItemsContext } from "../Context/CartContext";
-import CartCard from "@/components/UI/Card/CartCard";
+import CartCard from "@/components/UI/Card/CartCard/CartCard";
 
 const CartPage = () => {
   const { cartItem } = useContext(CartItemsContext);
@@ -46,8 +46,8 @@ const CartPage = () => {
                 </div>
               ) : (
                 <div className="space-y-4 divide-y divide-gray-100">
-                  {cartItem.map((listedItem) => (
-                    <div key={listedItem.id}  className="pt-4 first:pt-0">
+                  {cartItem.map((listedItem, index) => (
+                    <div key={index}  className="pt-4 first:pt-0">
                       <CartCard listedItem={listedItem} />
                     </div>
                   ))}

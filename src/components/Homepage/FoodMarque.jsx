@@ -65,10 +65,10 @@ const FoodMarquee = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="text-center mb-6">
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                        Trending Food Items
+                        Food Items
                     </h2>
                     <p className="text-sm text-gray-500 mt-1">
-                        Explore our popular foods
+                       Take a look at a glance
                     </p>
                 </div>
 

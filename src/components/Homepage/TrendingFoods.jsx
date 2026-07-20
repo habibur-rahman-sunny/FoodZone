@@ -1,5 +1,5 @@
 import Link from "next/link";
-import FoodCard from "../UI/Card/FoodCard";
+import FoodCard from "../UI/Card/FoodCard/FoodCard";
 
 const TrendingFoods = async ({ from }) => {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/foods");

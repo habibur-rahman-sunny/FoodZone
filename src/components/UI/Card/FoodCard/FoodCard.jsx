@@ -1,7 +1,7 @@
 'use client'
-import CartToggleBtn from "@/components/Menu/CartToggleBtn";
 import Image from "next/image";
 import Link from "next/link";
+import CartToggleBtn from "./CartToggleBtn";
 
 const FoodCard = ({ specificFood }) => {
     
