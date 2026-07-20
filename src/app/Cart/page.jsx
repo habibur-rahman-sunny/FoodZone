@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { CartItemsContext } from "../Context/CartContext";
 import CartCard from "@/components/UI/Card/CartCard/CartCard";
 
+
 const CartPage = () => {
   const { cartItem } = useContext(CartItemsContext);
   const totalPrice = cartItem.reduce((acc, item)=>{

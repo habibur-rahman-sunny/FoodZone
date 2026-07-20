@@ -22,7 +22,7 @@ const Navbar = () => {
                             alt="nav-logo"
                             width={50}
                             height={50}></Image>
-                        <h1 className="text-xl font-bold text-[#5B4BFF]">FoodHub</h1>
+                        <h1 className="text-xl font-bold text-[#5B4BFF]">FoodZone</h1>
                     </div>
                 </div>
 

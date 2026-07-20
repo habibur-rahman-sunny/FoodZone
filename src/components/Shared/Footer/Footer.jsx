@@ -23,12 +23,12 @@ const Footer = () => {
               </div>
 
               <h2 className="text-2xl font-bold">
-                FoodHub
+                FoodZone
               </h2>
             </div>
 
             <p className="text-gray-300 leading-relaxed">
-              FoodHub brings delicious and quality meals to your doorstep.
+              FoodZone brings delicious and quality meals to your doorstep.
               Explore fresh dishes, tasty burgers, beverages and traditional
               foods with easy ordering.
             </p>
@@ -45,7 +45,7 @@ const Footer = () => {
 
               <p className="flex gap-3 items-center">
                 <FaLocationDot className="text-orange-400"/>
-                Dhaka, Bangladesh
+                Cumilla, Bangladesh
               </p>
 
               <p className="flex gap-3 items-center">
@@ -55,7 +55,7 @@ const Footer = () => {
 
               <p className="flex gap-3 items-center">
                 <FaEnvelope className="text-orange-400"/>
-                support@foodhub.com
+                support@foodzone.com
               </p>
 
             </div>
