@@ -31,14 +31,12 @@ const TrendingFoods = async ({ from }) => {
                             />
                         ))
                         }
-
                     </div>
                 }
-
             </section>
             {from === "Homepage" ?
                 <div className="text-center py-10">
-                    <Link href={"/App"}><button className="btn bg-purple-500 text-white" >See more</button></Link>
+                    <Link href={"/Menu"}><button className="btn bg-purple-500 text-white" >See more</button></Link>
                 </div>
                 : ""
             }

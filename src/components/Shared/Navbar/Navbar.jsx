@@ -1,9 +1,19 @@
+'use client'
+import { useState } from "react";
 import Image from "next/image";
 import ReusableNav from "./ReusableNav";
 import CartIcon from "./CartIcon/CartIcon";
 import Link from "next/link";
 
 const Navbar = () => {
+
+    const [user, setUser] = useState(() => {
+        if (typeof window !== "undefined") {
+            const storedUser = localStorage.getItem("user");
+            return storedUser ? JSON.parse(storedUser) : null;
+        }
+        return null;
+    });
 
     const navItems = [
         { path: "/", text: "Home" },
@@ -39,9 +49,65 @@ const Navbar = () => {
 
                 {/* End empty rakhlam end dile navItem right side e cole jay*/}
                 {/* Right */}
-                <Link href={'/Cart'} className="navbar-end">
-                    <CartIcon />   {/* ✅ add this */}
-                </Link>
+                <div className="navbar-end flex items-center gap-4">
+
+                    {/* Cart Icon */}
+                    <Link href="/Cart">
+                        <CartIcon />
+                    </Link>
+
+
+                    {/* User Profile */}
+                    {
+                        user ? (
+                            <div className="dropdown dropdown-end">
+
+                                {/* Profile Image */}
+                                <div tabIndex={0} role="button">
+                                    <Image
+                                        src={user.photo || "/images/logo.png"}
+                                        alt="profile"
+                                        width={45}
+                                        height={45}
+                                        className="rounded-full cursor-pointer"
+                                    />
+                                </div>
+
+
+                                {/* Dropdown Content */}
+                                <div
+                                    tabIndex={0}
+                                    className="dropdown-content z-[1] mt-3 p-4 shadow bg-white rounded-box w-64">
+                                    <div className="space-y-2">
+                                        <h3 className="font-bold text-lg">
+                                            {user.name}
+                                        </h3>
+                                        <p className="text-sm text-gray-600">
+                                            {user.email}
+                                        </p>
+                                        <p className="text-sm">
+                                            📞 {user.phone || "Phone not added"}
+                                        </p>
+                                        <p className="text-sm">
+                                            📍 {user.address || "Address not added"}
+                                        </p>
+                                    </div>
+
+                                    <button className="btn btn-error btn-sm mt-4 w-full">
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
+                        ) : (
+                            // Not Logged In
+                            <Link href="/login">
+                                <button className="btn btn-primary btn-sm">
+                                    Login
+                                </button>
+                            </Link>
+                        )
+                    }
+                </div>
             </div>
         </div>
 

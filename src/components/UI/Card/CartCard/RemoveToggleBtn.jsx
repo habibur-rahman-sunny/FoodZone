@@ -3,7 +3,6 @@ import { useContext } from "react";
 
 const RemoveToggleBtn = ({listedItem}) => {
     const {cartItem, setCartItem} = useContext(CartItemsContext)
-    console.log(cartItem);
 
     const handleRemoveBtn = ()=> {
         const filteredItem = cartItem.filter((specificItem) => listedItem.id !== specificItem.id);
