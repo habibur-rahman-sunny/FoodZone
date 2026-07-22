@@ -8,7 +8,7 @@ export const metadata = {
 const AppsPage = async ({from}) => {
     return (
         <div>
-            <TrendingFoods from="App"></TrendingFoods>
+            <TrendingFoods from="Menu"></TrendingFoods>
         </div>
     );
 };

@@ -18,10 +18,11 @@ const CartCard = ({ listedItem }) => {
       <div className="flex items-center gap-4">
         <div className="relative h-20 w-20 overflow-hidden rounded-xl bg-gray-100">
           <Image
-            src={image_link}
-            alt={dish_name}
-            width="auto"
-            height="auto"
+            src={listedItem.image_link}
+            alt={listedItem.dish_name}
+            width={120}
+            height={120}
+            className="w-28 h-28 object-cover rounded-xl"
           />
         </div>
 

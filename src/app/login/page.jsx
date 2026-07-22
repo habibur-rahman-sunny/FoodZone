@@ -1,108 +1,99 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LoginPage = () => {
+  const router = useRouter();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-        const res = await fetch("http://localhost:5000/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
-        });
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-        const data = await res.json();
+      const data = await res.json();
 
-        if (res.ok) {
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data.user));
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
 
-            alert("Login successful");
-            window.location.href = "/";
-        }
-        else {
-            alert(data.message);
-        }
-    };
+        // Custom event trigger
+        window.dispatchEvent(new Event("storage"));
 
+        alert("Login Successful");
+        router.push("/");
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Something went wrong! Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-white to-orange-100">
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
+      <form
+        onSubmit={handleLogin}
+        className="w-full max-w-md shadow-xl p-8 rounded-2xl space-y-5 bg-white"
+      >
+        <h1 className="text-3xl font-bold text-center text-gray-800">Login</h1>
 
-            <div className="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-md">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          required
+          className="border p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-                <h1 className="text-3xl font-bold text-center text-[#5B4BFF]">
-                    Welcome Back 👋
-                </h1>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          required
+          className="border p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-                <p className="text-center text-gray-500 mt-2 mb-8">
-                    Login to continue FoodZone
-                </p>
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-indigo-600 hover:bg-indigo-700 text-white w-full p-3 rounded font-medium disabled:bg-indigo-300 transition-colors"
+        >
+          {loading ? "Logging in..." : "Login"}
+        </button>
 
-
-                <form onSubmit={handleLogin} className="space-y-5">
-
-
-                    <div>
-                        <label className="text-sm font-medium">
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="w-full mt-1 border rounded-xl p-3 outline-none focus:ring-2 focus:ring-purple-400"
-                            onChange={(e)=>setEmail(e.target.value)}
-                        />
-                    </div>
-
-
-                    <div>
-                        <label className="text-sm font-medium">
-                            Password
-                        </label>
-
-                        <input
-                            type="password"
-                            placeholder="Enter your password"
-                            className="w-full mt-1 border rounded-xl p-3 outline-none focus:ring-2 focus:ring-purple-400"
-                            onChange={(e)=>setPassword(e.target.value)}
-                        />
-                    </div>
-
-
-                    <button
-                        className="w-full bg-[#5B4BFF] text-white py-3 rounded-xl font-semibold hover:bg-purple-700 duration-300">
-                        Login
-                    </button>
-
-
-                </form>
-
-
-                <p className="text-center mt-6 text-gray-600">
-                    Don't have an account?
-                    <a href="/register" className="text-[#5B4BFF] font-semibold ml-2">
-                        Register
-                    </a>
-                </p>
-
-
-            </div>
-
-        </div>
-    );
+        <p className="text-center text-gray-600 mt-5">
+          Don't have an account?
+          <Link
+            href="/Register"
+            className="text-indigo-600 font-semibold ml-2 hover:underline"
+          >
+            Create New Account
+          </Link>
+        </p>
+      </form>
+    </div>
+  );
 };
-
 
 export default LoginPage;

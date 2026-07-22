@@ -1,32 +1,71 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
-const authMiddleware = (req, res, next) => {
-  try {
-    // Get token from header
-    const token = req.headers.authorization?.split(" ")[1];
 
-    if (!token) {
-      return res.status(401).json({
-        message: "No token, authorization denied",
-      });
+const authMiddleware = async (req, res, next) => {
+
+    try {
+
+        // Token collect
+        const token = req.headers.authorization?.split(" ")[1];
+
+
+        if (!token) {
+            return res.status(401).json({
+                success:false,
+                message:"No token found"
+            });
+        }
+
+
+
+        // Verify Token
+        const decoded = jwt.verify(
+            token,
+            process.env.JWT_SECRET
+        );
+
+
+
+        // Find user from database
+        const user = await User.findById(decoded.id)
+        .select("-password");
+
+
+
+        if(!user){
+
+            return res.status(404).json({
+                success:false,
+                message:"User not found"
+            });
+
+        }
+
+
+
+        // Attach user
+        req.user = user;
+
+
+        next();
+
+
+
+    } catch(error){
+
+
+        res.status(401).json({
+
+            success:false,
+            message:"Invalid Token"
+
+        });
+
+
     }
 
-    // Verify token
-    const decoded = jwt.verify(
-      token,
-      process.env.JWT_SECRET
-    );
-
-    // Add user info to request
-    req.user = decoded;
-
-    next();
-
-  } catch (error) {
-    res.status(401).json({
-      message: "Invalid token",
-    });
-  }
 };
+
 
 module.exports = authMiddleware;

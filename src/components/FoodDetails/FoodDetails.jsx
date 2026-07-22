@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import CartToggleBtn from "../UI/Card/FoodCard/CartToggleBtn";
+import BuyNowButton from "./BuyNowBtn";
 
 
 // FoodDetails Component (আলাদা ফাইল না রেখে এখানেই যুক্ত করা হলো)
@@ -110,9 +111,7 @@ const FoodDetails = ({ specificFood }) => {
                     <div className="grid grid-cols-2 gap-4 mt-8">
                         <CartToggleBtn specificFood={specificFood}></CartToggleBtn>
 
-                        <button className="bg-black text-white py-2 rounded-sm transition font-semibold">
-                            Buy Now
-                        </button>
+                        <BuyNowButton />
 
                         <button className="bg-green-600 text-white py-2 rounded-sm transition flex justify-center items-center gap-2 font-semibold">
                             <MessageCircle size={20}/>
