@@ -20,8 +20,8 @@ const CartCard = ({ listedItem }) => {
           <Image
             src={image_link}
             alt={dish_name}
-            fill
-            className="object-cover"
+            width="auto"
+            height="auto"
           />
         </div>
 

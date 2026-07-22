@@ -5,8 +5,7 @@ import { useContext } from "react";
 const CartToggleBtn = ({specificFood}) => {
     const {cartItem, setCartItem} = useContext(CartItemsContext)
     const handleCartBtn = ()=> {
-        setCartItem([...cartItem, specificFood])
-    }
+        setCartItem([...cartItem, specificFood])    }
     return (
         <button onClick={handleCartBtn} className="flex-1 bg-orange-500 text-white py-2 rounded-sm hover:bg-orange-600 transition">
             Add Cart

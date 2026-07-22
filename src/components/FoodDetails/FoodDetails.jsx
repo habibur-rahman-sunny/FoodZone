@@ -8,8 +8,10 @@ import {
 import Image from "next/image";
 import CartToggleBtn from "../UI/Card/FoodCard/CartToggleBtn";
 
+
 // FoodDetails Component (আলাদা ফাইল না রেখে এখানেই যুক্ত করা হলো)
 const FoodDetails = ({ specificFood }) => {
+
     // Object Destructuring
     const {
         id,
