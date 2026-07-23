@@ -1,7 +1,7 @@
 import Image from "next/image";
 import RemoveToggleBtn from "./RemoveToggleBtn";
 
-const CartCard = ({ listedItem }) => {
+const CartCard = ({ listedItem, from }) => {
   const {
     id,
     image_link,
@@ -9,6 +9,7 @@ const CartCard = ({ listedItem }) => {
     price,
   } = listedItem;
 
+  
   return (
     <div
       key={id}
@@ -18,8 +19,8 @@ const CartCard = ({ listedItem }) => {
       <div className="flex items-center gap-4">
         <div className="relative h-20 w-20 overflow-hidden rounded-xl bg-gray-100">
           <Image
-            src={listedItem.image_link}
-            alt={listedItem.dish_name}
+            src={image_link}
+            alt={dish_name}
             width={120}
             height={120}
             className="w-28 h-28 object-cover rounded-xl"
@@ -27,7 +28,7 @@ const CartCard = ({ listedItem }) => {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold text-gray-800">
+          <h3 className={`${from === "Checkout"? "line-clamp-1":""} text-lg font-semibold text-gray-800`}>
             {dish_name}
           </h3>
 

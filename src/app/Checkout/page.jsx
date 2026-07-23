@@ -4,8 +4,7 @@ import { useContext, useState } from "react";
 import { CartItemsContext } from "../Context/CartContext";
 import CartCard from "@/components/UI/Card/CartCard/CartCard";
 
-// আপনি চাইলে এই স্টেটগুলোর জন্য কোন লাইব্রেরি (যেমন: react-country-state-city) বা কাস্টম ডাটা ব্যবহার করতে পারেন।
-// এখানে উদাহরণের জন্য খালি রাখা হয়েছে।
+
 const countries = ["Bangladesh", "India", "USA", "UK"]; 
 const cities = ["Dhaka", "Chittagong", "Sylhet"];
 const states = ["Dhaka Division", "Chittagong Division"];
@@ -140,13 +139,13 @@ const CheckoutPage = () => {
               </span>
             </h2>
 
-            <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+            <div className="space-y-4 max-h-100 overflow-y-auto pr-2">
               {cartItem.length === 0 ? (
                 <p className="text-gray-500 text-sm text-center py-4">Your cart is empty.</p>
               ) : (
                 cartItem.map((listedItem, index) => (
                   <div key={index} className="pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                    <CartCard listedItem={listedItem} />
+                    <CartCard from="Checkout" listedItem={listedItem} />
                   </div>
                 ))
               )}
@@ -162,7 +161,7 @@ const CheckoutPage = () => {
             <div className="space-y-4 text-sm text-gray-600">
               <div className="flex justify-between items-center">
                 <span>Subtotal</span>
-                <span className="font-medium text-gray-900">${totalPrice.toFixed(2)}</span>
+                <span className="font-medium text-gray-900">{totalPrice.toFixed(2)}</span>
               </div>
 
               <div className="flex justify-between items-center">
@@ -172,12 +171,12 @@ const CheckoutPage = () => {
 
               <div className="flex justify-between items-center">
                 <span>Discount</span>
-                <span className="text-red-500 font-medium">-$0.00</span>
+                <span className="text-red-500 font-medium">-0.00</span>
               </div>
 
               <div className="border-t border-gray-100 pt-4 flex justify-between items-center text-base font-bold text-gray-950">
                 <span>Total</span>
-                <span className="text-xl text-violet-600">${totalPrice.toFixed(2)}</span>
+                <span className="text-xl text-violet-600">{totalPrice.toFixed(2)}</span>
               </div>
             </div>
           </div>

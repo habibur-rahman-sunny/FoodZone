@@ -4,7 +4,6 @@ export const CartItemsContext = createContext()
 
 const CartItemProvider = ({children}) => {
 const [cartItem, setCartItem] = useState([]);
-console.log(cartItem);
 const value = {
     cartItem,
     setCartItem,

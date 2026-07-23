@@ -21,15 +21,14 @@ const TrendingFoods = async ({ from }) => {
   }  else if (from === "Menu") {
     limit = FoodData.length; 
   } else {
-    limit = 3; 
+    limit = 6; 
   }
 
   // ২. Dynamic Heading নির্ধারণ
   const getHeading = () => {
     if (from === "Homepage") return "Trending Foods";
     if (from === "Menu") return "All Food Items";
-    if (from === "Cart") return "You May Also Like";
-    return "Recommended Foods";
+    return "You May Also Like";
   };
 
   // ৩. Dynamic Subtitle নির্ধারণ
@@ -38,9 +37,7 @@ const TrendingFoods = async ({ from }) => {
       return "Discover the most popular and delicious dishes loved by food enthusiasts.";
     if (from === "Menu")
       return "Explore our complete list of delicious meals prepared just for you.";
-    if (from === "Cart")
-      return "Add some extra treats to your order before checkout!";
-    return "";
+    return "Add some extra treats to your order before checkout!";
   };
 
   return (
@@ -60,13 +57,13 @@ const TrendingFoods = async ({ from }) => {
         {/* Food Grid */}
         <div
           className={`grid grid-cols-1 gap-10 justify-items-center ${
-            from === "Homepage" || from === "Menu"
-              ? "md:grid-cols-2 lg:grid-cols-4"
-              : "md:grid-cols-2 lg:grid-cols-3"
+            from === "Cart"
+              ? "md:grid-cols-2 lg:grid-cols-3"
+              : "md:grid-cols-2 lg:grid-cols-4"
           }`}
         >
           {FoodData.slice(0, limit).map((specificFood) => (
-            <FoodCard key={specificFood.id} specificFood={specificFood} />
+            <FoodCard key={specificFood.id} specificFood={specificFood} from={from} />
           ))}
         </div>
 
