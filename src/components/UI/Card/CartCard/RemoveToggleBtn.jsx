@@ -1,6 +1,7 @@
 import { CartItemsContext } from "@/app/Context/CartContext";
 import { Trash2 } from "lucide-react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 const RemoveToggleBtn = ({listedItem}) => {
     const {cartItem, setCartItem} = useContext(CartItemsContext)
@@ -8,6 +9,7 @@ const RemoveToggleBtn = ({listedItem}) => {
     const handleRemoveBtn = ()=> {
         const filteredItem = cartItem.filter((specificItem) => listedItem.id !== specificItem.id);
         setCartItem(filteredItem);
+        toast.success("Item removed successfully!");
     }
     return (
         <div>

@@ -1,30 +1,40 @@
 "use client";
 
+import { useContext } from "react";
 import { useRouter } from "next/navigation";
+import { CartItemsContext } from "@/app/Context/CartContext";
 
-const BuyNowButton = () => {
-  const router = useRouter();
+const BuyNowButton = ({ specificFood }) => {
 
-  const handleBuyNow = () => {
-    const token = localStorage.getItem("token");
+    const router = useRouter();
 
-    if (token) {
-      // Login করা আছে
-      router.push("/Checkout");
-    } else {
-      // Login করা নেই
-      router.push("/login");
-    }
-  };
+    // 1 --> Context use
+    const { cartItem, setCartItem } = useContext(CartItemsContext);
 
-  return (
-    <button
-      onClick={handleBuyNow}
-      className="bg-black text-white py-2 rounded-sm transition font-semibold"
-    >
-      Buy Now
-    </button>
-  );
+    // 2 --> onClick Function run
+    const handleBuyNow = () => {
+        // 4 --> Set item in array
+        setCartItem([
+            ...cartItem,
+            specificFood
+        ]);
+
+        router.push("/Checkout");
+
+    };
+
+
+    return (
+
+        <button
+            onClick={handleBuyNow}
+            className="bg-black text-white py-2 rounded-sm transition font-semibold"
+        >
+            Buy Now
+        </button>
+
+    );
+
 };
 
 export default BuyNowButton;

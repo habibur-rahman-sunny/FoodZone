@@ -3,6 +3,7 @@
 import { useContext, useState } from "react";
 import { CartItemsContext } from "../Context/CartContext";
 import CartCard from "@/components/UI/Card/CartCard/CartCard";
+import PaymentBtn from "./PaymentBtn";
 
 
 const countries = ["Bangladesh", "India", "USA", "UK"]; 
@@ -35,7 +36,7 @@ const CheckoutPage = () => {
         {/* LEFT: Shipping Details */}
         <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-100 text-violet-600 text-sm font-bold">1</span>
+            <span className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-100 text-violet-600 text-sm font-bold">A</span>
             Shipping & Contact Details
           </h2>
 
@@ -116,13 +117,8 @@ const CheckoutPage = () => {
               </label>
             </div>
 
-            <button
-              type="submit"
-              disabled={!agreed}
-              className={`w-full mt-6 py-4 rounded-xl font-semibold shadow-md transition-all duration-200 ${agreed ? 'bg-violet-600 hover:bg-violet-700 text-white active:scale-[0.98] shadow-violet-200' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
-            >
-              Proceed to Payment
-            </button>
+            <PaymentBtn agreed={agreed}></PaymentBtn>
+            
           </form>
         </div>
 
@@ -132,9 +128,9 @@ const CheckoutPage = () => {
           {/* Your Order (Cart Items) */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-100 text-violet-600 text-sm font-bold">2</span>
+               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-violet-100 text-violet-600 text-sm font-bold">B</span>
               Your Order
-              <span className="text-sm font-semibold text-green-600 bg-gray-100 px-2.5 py-0.5 rounded-full">
+              <span className="text-sm font-semibold text-green-600 bg-gray-100 px-2.5 py-0.5 rounded-full animate-bounce">
                 {cartItem.length} items
               </span>
             </h2>

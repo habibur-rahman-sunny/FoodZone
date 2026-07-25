@@ -13,15 +13,9 @@ const CartPageClient = () => {
     return acc + item.price;
   }, 0);
 
-  // Login check before checkout
+  //checkout
   const handleCheckout = () => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      router.push("/Checkout");
-    } else {
-      router.push("/login");
-    }
+    router.push("/Checkout");
   };
 
   return (
