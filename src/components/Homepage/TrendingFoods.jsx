@@ -6,7 +6,10 @@ const TrendingFoods = async ({ from }) => {
 
   try {
     const res = await fetch(
-      "https://phi-lab-server.vercel.app/api/v1/lab/foods"
+      "https://phi-lab-server.vercel.app/api/v1/lab/foods",
+      {
+        cache: "no-store",
+      }
     );
     const data = await res.json();
     FoodData = data.data || [];
@@ -18,10 +21,10 @@ const TrendingFoods = async ({ from }) => {
   let limit = FoodData.length;
   if (from === "Homepage") {
     limit = 8;
-  }  else if (from === "Menu") {
-    limit = FoodData.length; 
+  } else if (from === "Menu") {
+    limit = FoodData.length;
   } else {
-    limit = 6; 
+    limit = 6;
   }
 
   // ২. Dynamic Heading নির্ধারণ
@@ -43,7 +46,7 @@ const TrendingFoods = async ({ from }) => {
   return (
     <div>
       <section className="max-w-7xl mx-auto px-4 py-10">
-        
+
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-gray-900">
@@ -56,11 +59,10 @@ const TrendingFoods = async ({ from }) => {
 
         {/* Food Grid */}
         <div
-          className={`grid grid-cols-1 gap-10 justify-items-center ${
-            from === "Cart"
+          className={`grid grid-cols-1 gap-10 justify-items-center ${from === "Cart"
               ? "md:grid-cols-2 lg:grid-cols-3"
               : "md:grid-cols-2 lg:grid-cols-4"
-          }`}
+            }`}
         >
           {FoodData.slice(0, limit).map((specificFood) => (
             <FoodCard key={specificFood.id} specificFood={specificFood} from={from} />

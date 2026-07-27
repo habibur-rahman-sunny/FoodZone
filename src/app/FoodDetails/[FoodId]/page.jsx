@@ -16,8 +16,12 @@ export const generateMetadata = async ({ params }) => {
 // Next.js Page Component (যেখান থেকে API ডাটা ফেচ হচ্ছে)
 const page = async ({ params }) => {
     const { FoodId } = await params;
-    
-    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/foods/${FoodId}`);
+
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/foods/${FoodId}`,
+        {
+            cache: "no-store",
+        }
+    );
     const data = await res.json();
     const specificFood = data.data;
 

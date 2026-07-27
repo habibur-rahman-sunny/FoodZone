@@ -9,7 +9,9 @@ const RemoveToggleBtn = ({listedItem}) => {
     const handleRemoveBtn = ()=> {
         const filteredItem = cartItem.filter((specificItem) => listedItem.id !== specificItem.id);
         setCartItem(filteredItem);
-        toast.success("Item removed successfully!");
+         toast.success("Item removed successfully!", {
+            duration: 1000,
+        });
     }
     return (
         <div>

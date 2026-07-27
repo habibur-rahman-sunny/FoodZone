@@ -52,7 +52,7 @@ const Register = () => {
       >
         <h1 className="text-3xl font-bold">Create Account</h1>
 
-        {["name", "email", "password", "phone", "address", "photo"].map(
+        {["name", "email", "password", "phone", "address",].map(
           (item) => (
             <input
               key={item}

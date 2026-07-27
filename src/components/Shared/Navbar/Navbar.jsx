@@ -33,9 +33,9 @@ const Navbar = () => {
   const navItems = [
     { path: "/", text: "Home" },
     { path: "/Menu", text: "Menu" },
-    { path: "/Dashboard", text: "Dashboard" },
     { path: "/Cart", text: "Cart" },
     { path: "/Checkout", text: "Checkout" },
+    { path: "/Dashboard", text: "Dashboard" },
   ];
 
   return (
