@@ -6,11 +6,7 @@ const TrendingFoods = async ({ from }) => {
 
   try {
     const res = await fetch(
-      "https://phi-lab-server.vercel.app/api/v1/lab/foods",
-      {
-        cache: "no-store",
-      }
-    );
+      "https://phi-lab-server.vercel.app/api/v1/lab/foods");
     const data = await res.json();
     FoodData = data.data || [];
   } catch (error) {
