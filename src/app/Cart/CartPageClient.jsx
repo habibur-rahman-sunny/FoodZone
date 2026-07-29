@@ -7,6 +7,7 @@ import CartCard from "@/components/UI/Card/CartCard/CartCard";
 
 const CartPageClient = () => {
   const { cartItem } = useContext(CartItemsContext);
+  console.log(cartItem);
   const router = useRouter();
 
   const totalPrice = cartItem.reduce((acc, item) => {

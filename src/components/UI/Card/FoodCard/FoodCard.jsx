@@ -85,7 +85,7 @@ const FoodCard = ({ specificFood, from }) => {
                                     isCart ? "text-lg" : "text-3xl"
                                 }`}
                             >
-                                ${price}
+                                {price}
                             </span>
 
                             <span

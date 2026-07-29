@@ -33,7 +33,7 @@ const DashboardPage = () => {
     },
     {
       title: "Total Spent",
-      value: "$145",
+      value: "145",
       icon: <FaMoneyBillWave className="text-3xl text-gray-400" />,
     },
     {
