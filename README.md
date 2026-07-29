@@ -1,6 +1,6 @@
 # 🍔 Project Overview
 
-FoodZone is a modern and responsive food discovery web application where users can browse delicious food items, explore detailed information, and add their favorite dishes to the cart through an intuitive and user-friendly interface.
+FoodZone is a modern and responsive food discovery web application built to improve my web development skills, where users can browse food items, view details, and add their favorite dishes to the cart.
 
 This project demonstrates:
 
