@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ReusableNav from "./ReusableNav";
 import CartIcon from "./CartIcon/CartIcon";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -45,10 +46,10 @@ const Navbar = () => {
         <div className="navbar-start">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/images/logo.png"
+              src="/images/nav-food-logo.png"
               alt="logo"
-              width={50}
-              height={50}
+              width={100}
+              height={100}
             />
             <h1 className="text-xl font-bold text-[#5B4BFF]">FoodZone</h1>
           </Link>
@@ -81,6 +82,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+        <MobileMenu></MobileMenu>
       </div>
     </div>
   );
