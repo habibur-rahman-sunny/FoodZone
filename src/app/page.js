@@ -15,7 +15,7 @@ const Home = async ()=> {
   const FoodsData = await GetFoods();
       
   return (
-    <div >
+    <div>
       <Banner></Banner>
       <States></States>
       <TrendingFoods from="Homepage" FoodsData={FoodsData}></TrendingFoods>
