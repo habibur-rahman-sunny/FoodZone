@@ -51,7 +51,6 @@ const Navbar = () => {
               width={100}
               height={100}
             />
-            <h1 className="text-xl font-bold text-[#5B4BFF]">FoodZone</h1>
           </Link>
         </div>
 

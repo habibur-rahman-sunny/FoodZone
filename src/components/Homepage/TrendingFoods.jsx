@@ -1,24 +1,27 @@
+"use client"
 import Link from "next/link";
 import FoodCard from "../UI/Card/FoodCard/FoodCard";
+import InputField from "../InputField/InputField";
+import { SearchingItemContext } from "@/app/Context/SearchingFoodContext";
+import { useContext, useEffect } from "react";
 
-const TrendingFoods = async ({ from }) => {
-  let FoodData = [];
 
-  try {
-    const res = await fetch(
-      "https://phi-lab-server.vercel.app/api/v1/lab/foods");
-    const data = await res.json();
-    FoodData = data.data || [];
-  } catch (error) {
-    console.log(error);
-  }
+const TrendingFoods = ({ from, FoodsData =[] }) => {
+
+  const { searchingItem, setSearchingItem } = useContext(SearchingItemContext);
+  // context reset korar jonno jate routing er poreo searching value na thake
+  useEffect(() => {
+    setSearchingItem([]);
+  }, []);
+  // hoy searching item nahoy all item
+  const DisplayFoods = searchingItem.length > 0? searchingItem: FoodsData;
 
   // ১. dynamic slice limit নির্ধারণ
-  let limit = FoodData.length;
+  let limit = FoodsData.length;
   if (from === "Homepage") {
     limit = 8;
   } else if (from === "Menu") {
-    limit = FoodData.length;
+    limit = FoodsData.length;
   } else {
     limit = 6;
   }
@@ -53,14 +56,36 @@ const TrendingFoods = async ({ from }) => {
           )}
         </div>
 
+        {/* Search & Filter Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+
+          {/* Search Area */}
+          <InputField FoodsData={FoodsData}></InputField>
+
+          {/* Filter Dropdown */}
+          <div className="w-full md:w-auto">
+            <select className="select select-bordered w-full md:w-52">
+              <option >
+                Filter By Category
+              </option>
+              <option>All</option>
+              <option>Burger</option>
+              <option>Biriyani</option>
+              <option>Beverage</option>
+              <option>Dish</option>
+            </select>
+          </div>
+
+        </div>
+
         {/* Food Grid */}
         <div
           className={`grid grid-cols-1 gap-10 justify-items-center ${from === "Cart"
-              ? "md:grid-cols-2 lg:grid-cols-3"
-              : "md:grid-cols-2 lg:grid-cols-4"
+            ? "md:grid-cols-2 lg:grid-cols-3"
+            : "md:grid-cols-2 lg:grid-cols-4"
             }`}
         >
-          {FoodData.slice(0, limit).map((specificFood) => (
+          {DisplayFoods.slice(0, limit).map((specificFood) => (
             <FoodCard key={specificFood.id} specificFood={specificFood} from={from} />
           ))}
         </div>

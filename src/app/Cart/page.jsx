@@ -1,7 +1,10 @@
+import { GetFoods } from "../Lib/GetFoods/GetFoods";
 import CartPageClient from "./CartPageClient";
 import TrendingFoods from "@/components/Homepage/TrendingFoods";
 
-export default function Page() {
+const CartPage = async ()=> {
+
+  const FoodsData = await GetFoods();
   return (
     <div className="grid lg:grid-cols-2 gap-8 items-stretch my-12">
 
@@ -10,9 +13,11 @@ export default function Page() {
       </div>
 
       <div className="lg:col-span-1 h-[80vh] overflow-y-auto pr-2">
-        <TrendingFoods from="Cart"></TrendingFoods>
+        <TrendingFoods from="Cart" FoodsData={FoodsData}></TrendingFoods>
       </div>
 
     </div>
   );
 }
+
+export default  CartPage;

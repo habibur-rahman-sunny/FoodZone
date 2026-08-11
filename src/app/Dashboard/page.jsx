@@ -89,7 +89,7 @@ const DashboardPage = () => {
                   key={item.food}
                   className="flex justify-between items-center border-b pb-3"
                 >
-                  <span className="font-medium">🍔 {item.food}</span>
+                  <span className="font-medium">{item.food}</span>
 
                   <span
                     className={`text-sm font-semibold ${
@@ -149,7 +149,7 @@ const DashboardPage = () => {
                 key={food}
                 className="border rounded-xl p-6 text-center hover:shadow-lg transition cursor-pointer"
               >
-                <div className="text-5xl mb-3">🍔</div>
+                <div className="text-5xl mb-3"></div>
                 <h3 className="font-semibold">{food}</h3>
               </div>
             ))}
