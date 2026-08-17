@@ -23,40 +23,47 @@ const FilterFunctionality = ({ FoodsData, onSearch, onFilter }) => {
 
   return (
 
-    <div className="flex w-full md:w-2/3 gap-2 mx-auto">
-      <input
-        onChange={e => setSearchingInput(e.target.value)}
-        type="text"
-        placeholder="Search your favorite food..."
-        className="input input-bordered flex-1"
-      />
-      <button onClick={handleSearching} className="btn bg-purple-500 text-white hover:bg-purple-600">
-        Search
-      </button>
+    <div className="flex flex-col sm:flex-row w-full md:w-2/3 gap-2 mx-auto">
 
-      {/* Filter Dropdown */}
-      <div className="w-full md:w-auto">
-        <select onChange={(e) => {
-          const value = e.target.value
-          setSelectedOption(value)
-          if (value === "All") {
-            onFilter("");
-          } else {
-            onFilter(value);
-          }
+  <input
+    onChange={e => setSearchingInput(e.target.value)}
+    type="text"
+    placeholder="Search your favorite food..."
+    className="input input-bordered w-full sm:flex-1"
+  />
+
+  <button
+    onClick={handleSearching}
+    className="btn w-full sm:w-auto bg-purple-500 text-white hover:bg-purple-600"
+  >
+    Search
+  </button>
+
+  {/* Filter Dropdown */}
+  <div className="w-full sm:w-auto">
+    <select
+      onChange={(e) => {
+        const value = e.target.value;
+        setSelectedOption(value);
+
+        if (value === "All") {
+          onFilter("");
+        } else {
+          onFilter(value);
         }
-        } className="select select-bordered w-full md:w-52">
-          <option>
-            Filter By Category
-          </option>
-          <option>All</option>
-          <option>burger</option>
-          <option>biriyani</option>
-          <option>beverage</option>
-          <option>dish</option>
-        </select>
-      </div>
-    </div>
+      }}
+      className="select select-bordered w-full sm:w-52"
+    >
+      <option>Filter By Category</option>
+      <option>All</option>
+      <option>burger</option>
+      <option>biriyani</option>
+      <option>beverage</option>
+      <option>dish</option>
+    </select>
+  </div>
+
+</div>
 
 
 

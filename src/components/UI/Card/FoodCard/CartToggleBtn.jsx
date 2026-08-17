@@ -12,7 +12,10 @@ const CartToggleBtn = ({ specificFood }) => {
         });
     }
     return (
-        <button onClick={handleCartBtn} className="flex-1 bg-orange-500 text-white py-2 rounded-sm hover:bg-orange-600 transition">
+        <button
+            onClick={handleCartBtn}
+            className="flex-1 min-w-0 bg-orange-500 text-white py-1.5 sm:py-2 px-1 sm:px-2 text-[10px] sm:text-sm rounded-sm hover:bg-orange-600 transition whitespace-nowrap"
+        >
             Add Cart
         </button>
     );
